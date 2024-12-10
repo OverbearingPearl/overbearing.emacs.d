@@ -11,7 +11,9 @@
 
 (load-custom-file custom-prelude-file)
 
-(require 'package)
+(setq custom-file "~/.emacs.d/custom.el")
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;; 设置中国科学技术大学的 Emacs 镜像源
 (add-to-list 'package-archives
@@ -37,10 +39,10 @@
 
 (add-hook 'git-commit-mode-hook
           (lambda ()
-        (setq-local truncate-lines nil)
+            (setq-local truncate-lines nil)
             (setq-local fill-column 72)
-        (auto-fill-mode 1)
-        (visual-line-mode 1)))
+            (auto-fill-mode 1)
+            (visual-line-mode 1)))
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -54,8 +56,8 @@
            (screen-center-y (/ screen-height 2))
            (frame-width (frame-pixel-width))
            (frame-height (frame-pixel-height))
-       (frame-left (- screen-center-x (/ frame-width 2)))
-       (frame-top (- screen-center-y (/ frame-height 2))))
+	   (frame-left (- screen-center-x (/ frame-width 2)))
+	   (frame-top (- screen-center-y (/ frame-height 2))))
       (set-frame-position frame frame-left frame-top))))
 
 ;; 将函数添加到 after-make-frame-functions

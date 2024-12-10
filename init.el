@@ -15,6 +15,8 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(require 'package)
+
 ;; 设置中国科学技术大学的 Emacs 镜像源
 (add-to-list 'package-archives
              '("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/") t)

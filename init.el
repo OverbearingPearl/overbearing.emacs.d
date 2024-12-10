@@ -38,7 +38,7 @@
   :ensure t)
 
 (add-hook 'git-commit-mode-hook
-          (lambda ()
+          (progn
             (setq-local truncate-lines nil)
             (setq-local fill-column 72)
             (auto-fill-mode 1)

@@ -35,6 +35,11 @@
 (setq package-check-signature nil) ; 禁用签名检查，加快更新速度
 (add-hook 'after-init-hook #'package-autoremove) ; 删除不再使用的包
 
+(use-package wakatime-mode
+  :ensure t
+  :config
+  (global-wakatime-mode 1))
+
 (use-package magit
   :ensure t)
 

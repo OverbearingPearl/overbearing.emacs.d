@@ -47,8 +47,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
 (defun resize-frame-centered (frame)
-  "Set the Emacs frame to be centered on the screen."
   (with-selected-frame frame
     (let* ((screen-width (display-pixel-width))
            (screen-height (display-pixel-height))
@@ -59,9 +59,11 @@
 	   (frame-left (- screen-center-x (/ frame-width 2)))
 	   (frame-top (- screen-center-y (/ frame-height 2))))
       (set-frame-position frame frame-left frame-top))))
+(defun resize-current-frame-centered ()
+  (resize-frame-centered (selected-frame)))
 
-;; 将函数添加到 after-make-frame-functions
 (add-hook 'after-make-frame-functions 'resize-frame-centered)
+(add-hook 'after-init-hook 'resize-current-frame-centered)
 
 (server-start)
 

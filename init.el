@@ -1,17 +1,10 @@
-(defvar custom-directory (expand-file-name "custom" user-emacs-directory))
-
-(defvar custom-prelude-file
-  (expand-file-name "init-custom-prelude.el" custom-directory))
-(defvar custom-coda-file
-  (expand-file-name "init-custom-coda.el" custom-directory))
-
 (defun load-file-when-exists (custom-file)
   (if (file-exists-p custom-file)
       (load custom-file nil :noerror)))
 
-(load-file-when-exists custom-prelude-file)
+(load-file-when-exists "~/.emacs.d/custom/custom-prelude.el")
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.emacs.d/custom/custom.el")
 (load-file-when-exists custom-file)
 
 (require 'package)
@@ -71,6 +64,6 @@
 
 (server-start)
 
-(load-file-when-exists custom-coda-file)
+(load-file-when-exists "~/.emacs.d/custom/custom-coda.el")
 
 ;; .init.el ends

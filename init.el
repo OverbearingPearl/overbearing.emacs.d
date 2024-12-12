@@ -9,24 +9,20 @@
 
 (require 'package)
 
-;; 设置中国科学技术大学的 Emacs 镜像源
 (add-to-list 'package-archives
              '("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/") t)
 
-;; 设置 GNU Emacs 镜像源
 (add-to-list 'package-archives
              '("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/") t)
 
-;; 初始化包管理器
 (package-initialize)
 
-;; 确保 use-package 已经安装
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(setq package-check-signature nil) ; 禁用签名检查，加快更新速度
-(add-hook 'after-init-hook #'package-autoremove) ; 删除不再使用的包
+(setq package-check-signature nil) ; for speeding up
+(add-hook 'after-init-hook #'package-autoremove)
 
 (use-package wakatime-mode
   :ensure t

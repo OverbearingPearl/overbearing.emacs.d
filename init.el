@@ -24,13 +24,12 @@
 (setq package-check-signature nil) ; for speeding up
 (add-hook 'after-init-hook #'package-autoremove)
 
-(use-package wakatime-mode
-  :ensure t
-  :config
-  (global-wakatime-mode 1))
-
 (use-package magit
   :ensure t)
+
+(use-package wakatime-mode
+  :ensure t
+  :hook (after-init . global-wakatime-mode))
 
 (add-hook 'git-commit-mode-hook
           (progn

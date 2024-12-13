@@ -31,6 +31,12 @@
   :ensure t
   :hook (after-init . global-wakatime-mode))
 
+(use-package ivy
+  :ensure t
+  :hook (after-init . ivy-mode)
+  :config
+  (setq ivy-use-virtual-buffers t))
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

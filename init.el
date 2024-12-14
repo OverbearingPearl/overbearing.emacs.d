@@ -39,6 +39,10 @@
   :config
   (global-set-key (kbd "C-s") 'swiper))
 
+(use-package counsel
+  :ensure t
+  :hook (after-init . counsel-mode))
+
 (use-package cmake-mode
   :ensure t)
 

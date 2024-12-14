@@ -34,6 +34,11 @@
   :config
   (setq ivy-use-virtual-buffers t))
 
+(use-package swiper
+  :ensure t
+  :config
+  (global-set-key (kbd "C-s") 'swiper))
+
 (use-package cmake-mode
   :ensure t)
 

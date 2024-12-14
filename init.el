@@ -8,13 +8,10 @@
 (load-file-when-exists custom-file)
 
 (require 'package)
-
 (add-to-list 'package-archives
              '("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/") t)
-
 (add-to-list 'package-archives
              '("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/") t)
-
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -36,6 +33,9 @@
   :hook (after-init . ivy-mode)
   :config
   (setq ivy-use-virtual-buffers t))
+
+(use-package cmake-mode
+  :ensure t)
 
 (add-hook 'git-commit-mode-hook
           (progn

@@ -21,6 +21,9 @@
 (setq package-check-signature nil) ; for speeding up
 (add-hook 'after-init-hook #'package-autoremove)
 
+(use-package diminish
+  :ensure t)
+
 (use-package magit
   :ensure t)
 
@@ -30,18 +33,20 @@
 
 (use-package ivy
   :ensure t
+  :diminish ivy-mode
   :hook (after-init . ivy-mode)
   :config
   (setq ivy-use-virtual-buffers t))
+
+(use-package counsel
+  :ensure t
+  :diminish counsel-mode
+  :hook (after-init . counsel-mode))
 
 (use-package swiper
   :ensure t
   :config
   (global-set-key (kbd "C-s") 'swiper))
-
-(use-package counsel
-  :ensure t
-  :hook (after-init . counsel-mode))
 
 (use-package cmake-mode
   :ensure t)

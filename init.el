@@ -46,6 +46,19 @@
 (use-package cmake-mode
   :ensure t)
 
+(use-package lsp-mode
+  :ensure t
+  :hook ((c++-mode . lsp-deferred)
+         (c-mode . lsp-deferred))
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-idle-timeout 0.5
+        lsp-idle-delay 0.1
+        lsp-auto-guess-root t
+        lsp-keep-workspace-alive nil
+        lsp-completion-provider :capf
+        lsp-headerline-breadcrumb-enable nil))
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

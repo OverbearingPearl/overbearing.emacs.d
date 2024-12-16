@@ -46,7 +46,7 @@
 (use-package swiper
   :ensure t
   :config
-  (global-set-key (kbd "C-s") 'swiper))
+  (global-set-key (kbd "C-s") 'swiper-thing-at-point))
 
 (use-package cmake-mode
   :ensure t)

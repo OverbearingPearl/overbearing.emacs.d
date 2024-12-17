@@ -71,6 +71,8 @@
             (auto-fill-mode 1)
             (visual-line-mode 1)))
 
+(setq-default indent-tabs-mode nil)
+
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)

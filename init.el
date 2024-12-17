@@ -24,6 +24,10 @@
 (use-package diminish
   :ensure t)
 
+(use-package which-key
+  :ensure t
+  :hook (after-init . which-key-mode))
+
 (use-package magit
   :ensure t)
 

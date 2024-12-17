@@ -45,8 +45,7 @@
   :ensure t
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
-  :config
-  (setq ivy-use-virtual-buffers t))
+  :config (setq ivy-use-virtual-buffers t))
 
 (use-package counsel
   :ensure t
@@ -55,8 +54,7 @@
 
 (use-package swiper
   :ensure t
-  :config
-  (global-set-key (kbd "C-s") 'swiper-thing-at-point))
+  :config (global-set-key (kbd "C-s") 'swiper-thing-at-point))
 
 (use-package cmake-mode
   :ensure t)
@@ -65,14 +63,13 @@
   :ensure t
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred))
-  :config
-  (setq lsp-prefer-flymake nil
-        lsp-idle-timeout 0.5
-        lsp-idle-delay 0.1
-        lsp-auto-guess-root t
-        lsp-keep-workspace-alive nil
-        lsp-completion-provider :capf
-        lsp-headerline-breadcrumb-enable nil))
+  :config (setq lsp-prefer-flymake nil
+                lsp-idle-timeout 0.5
+                lsp-idle-delay 0.1
+                lsp-auto-guess-root t
+                lsp-keep-workspace-alive nil
+                lsp-completion-provider :capf
+                lsp-headerline-breadcrumb-enable nil))
 
 (add-hook 'git-commit-mode-hook
           (progn

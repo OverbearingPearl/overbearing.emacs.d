@@ -27,6 +27,10 @@
 (use-package magit
   :ensure t)
 
+(use-package git-gutter
+  :ensure t
+  :hook (after-init . global-git-gutter-mode))
+
 (use-package wakatime-mode
   :ensure t
   :hook (after-init . global-wakatime-mode))

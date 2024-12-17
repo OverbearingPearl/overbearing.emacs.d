@@ -29,6 +29,7 @@
   :hook (after-init . which-key-mode))
 
 (use-package magit
+  :if (executable-find "git")
   :ensure t)
 
 (use-package git-gutter
@@ -36,6 +37,7 @@
   :hook (after-init . global-git-gutter-mode))
 
 (use-package wakatime-mode
+  :if (executable-find "wakatime")
   :ensure t
   :hook (after-init . global-wakatime-mode))
 

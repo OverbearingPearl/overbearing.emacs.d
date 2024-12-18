@@ -26,6 +26,7 @@
 
 (use-package which-key
   :ensure t
+  :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
 (use-package magit
@@ -34,6 +35,7 @@
 
 (use-package git-gutter
   :ensure t
+  :diminish git-gutter-mode
   :hook (after-init . global-git-gutter-mode))
 
 (use-package wakatime-mode

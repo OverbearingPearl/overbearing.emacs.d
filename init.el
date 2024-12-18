@@ -61,6 +61,7 @@
 
 (use-package lsp-mode
   :ensure t
+  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred))
   :config (setq lsp-prefer-flymake nil

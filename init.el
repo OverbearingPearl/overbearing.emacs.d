@@ -29,6 +29,12 @@
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
+(use-package ace-window
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x o") 'ace-window)
+  (set-face-attribute 'aw-leading-char-face nil :height 8.0))
+
 (use-package magit
   :if (executable-find "git")
   :ensure t)

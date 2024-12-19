@@ -22,7 +22,10 @@
 (add-hook 'after-init-hook #'package-autoremove)
 
 (use-package diminish
-  :ensure t)
+  :ensure t
+  :config
+  (diminish 'auto-revert-mode "")
+  (diminish 'abbrev-mode ""))
 
 (use-package which-key
   :ensure t
@@ -47,6 +50,7 @@
 (use-package wakatime-mode
   :if (executable-find "wakatime")
   :ensure t
+  :diminish wakatime-mode
   :hook (after-init . global-wakatime-mode))
 
 (use-package ivy

@@ -87,9 +87,9 @@
 
 (use-package treemacs
   :ensure t
-  :hook ((after-init . (lambda ()
+  :hook (after-init . (lambda ()
                          (treemacs-follow-mode 1)
-                         (treemacs-filewatch-mode 1)))))
+                         (treemacs-filewatch-mode 1))))
 
 (add-hook 'git-commit-mode-hook
           (progn

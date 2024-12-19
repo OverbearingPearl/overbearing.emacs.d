@@ -63,7 +63,6 @@
 
 (use-package lsp-mode
   :ensure t
-  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred))
   :config (setq lsp-prefer-flymake nil
@@ -72,7 +71,13 @@
                 lsp-auto-guess-root t
                 lsp-keep-workspace-alive nil
                 lsp-completion-provider :capf
-                lsp-headerline-breadcrumb-enable nil))
+                lsp-headerline-breadcrumb-enable nil
+                lsp-keymap-prefix "C-c l"))
+
+(use-package projectile
+  :ensure t
+  :hook (after-init . projectile-mode)
+  :config (global-set-key (kbd "C-c p") 'projectile-commander))
 
 (add-hook 'git-commit-mode-hook
           (progn

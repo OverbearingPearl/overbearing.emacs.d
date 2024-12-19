@@ -79,6 +79,12 @@
   :hook (after-init . projectile-mode)
   :config (global-set-key (kbd "C-c p") 'projectile-commander))
 
+(use-package treemacs
+  :ensure t
+  :hook ((after-init . (lambda ()
+                         (treemacs-follow-mode 1)
+                         (treemacs-filewatch-mode 1)))))
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

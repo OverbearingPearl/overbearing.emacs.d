@@ -71,6 +71,17 @@
 (use-package cmake-mode
   :ensure t)
 
+(use-package projectile
+  :ensure t
+  :hook (after-init . projectile-mode)
+  :config (global-set-key (kbd "C-c p") 'projectile-commander))
+
+(use-package treemacs
+  :ensure t
+  :hook (after-init . (lambda ()
+                         (treemacs-follow-mode 1)
+                         (treemacs-filewatch-mode 1))))
+
 (use-package lsp-mode
   :ensure t
   :hook ((c++-mode . lsp-deferred)
@@ -84,16 +95,10 @@
                 lsp-headerline-breadcrumb-enable nil
                 lsp-keymap-prefix "C-c l"))
 
-(use-package projectile
+(use-package lsp-treemacs
   :ensure t
-  :hook (after-init . projectile-mode)
-  :config (global-set-key (kbd "C-c p") 'projectile-commander))
-
-(use-package treemacs
-  :ensure t
-  :hook (after-init . (lambda ()
-                         (treemacs-follow-mode 1)
-                         (treemacs-filewatch-mode 1))))
+  :after lsp-mode
+  :hook (lsp-mode . lsp-treemacs-sync-mode))
 
 (add-hook 'git-commit-mode-hook
           (progn

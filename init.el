@@ -19,7 +19,6 @@
   (package-install 'use-package))
 
 (setq package-check-signature nil) ; for speeding up
-(add-hook 'after-init-hook #'package-autoremove)
 
 (use-package diminish
   :ensure t

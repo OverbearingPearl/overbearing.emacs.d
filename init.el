@@ -94,6 +94,11 @@
                 lsp-completion-provider :capf
                 lsp-headerline-breadcrumb-enable nil))
 
+(use-package lsp-ui
+  :ensure t
+  :after lsp-mode
+  :hook (lsp-mode . lsp-ui-mode))
+
 (use-package lsp-treemacs
   :ensure t
   :after lsp-mode

@@ -83,6 +83,7 @@
 
 (use-package lsp-mode
   :ensure t
+  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred))
   :config (setq lsp-prefer-flymake nil
@@ -91,8 +92,7 @@
                 lsp-auto-guess-root t
                 lsp-keep-workspace-alive nil
                 lsp-completion-provider :capf
-                lsp-headerline-breadcrumb-enable nil
-                lsp-keymap-prefix "C-c l"))
+                lsp-headerline-breadcrumb-enable nil))
 
 (use-package lsp-treemacs
   :ensure t

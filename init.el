@@ -76,6 +76,11 @@
   :ensure t
   :config (global-set-key (kbd "C-s") 'swiper-thing-at-point))
 
+(use-package ivy-posframe
+  :ensure t
+  :after (ivy posframe)
+  :hook (after-init . ivy-posframe-mode))
+
 (use-package cmake-mode
   :ensure t)
 

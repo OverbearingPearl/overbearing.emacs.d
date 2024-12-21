@@ -26,10 +26,18 @@
   (diminish 'auto-revert-mode "")
   (diminish 'abbrev-mode ""))
 
+(use-package posframe
+  :ensure t)
+
 (use-package which-key
   :ensure t
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
+
+(use-package which-key-posframe
+  :ensure t
+  :after (posframe which-key)
+  :hook (after-init . which-key-posframe-mode))
 
 (use-package ace-window
   :ensure t
@@ -79,8 +87,8 @@
 (use-package treemacs
   :ensure t
   :hook (after-init . (lambda ()
-                         (treemacs-follow-mode 1)
-                         (treemacs-filewatch-mode 1)))
+                        (treemacs-follow-mode 1)
+                        (treemacs-filewatch-mode 1)))
   :config (global-set-key (kbd "M-0") 'treemacs-select-window))
 
 (use-package lsp-mode

@@ -26,13 +26,17 @@
   (diminish 'auto-revert-mode "")
   (diminish 'abbrev-mode ""))
 
-(use-package posframe
-  :ensure t)
+(use-package smex
+  :ensure t
+  :init (smex-initialize))
 
 (use-package which-key
   :ensure t
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
+
+(use-package posframe
+  :ensure t)
 
 (use-package which-key-posframe
   :ensure t
@@ -69,6 +73,7 @@
 
 (use-package counsel
   :ensure t
+  :after smex
   :diminish counsel-mode
   :hook (after-init . counsel-mode))
 

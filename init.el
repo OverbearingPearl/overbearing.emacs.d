@@ -33,6 +33,7 @@
 
 (use-package ace-window
   :ensure t
+  :hook (after-init . ace-window-posframe-mode)
   :config
   (global-set-key (kbd "C-x o") 'ace-window)
   (set-face-attribute 'aw-leading-char-face nil :height 8.0))

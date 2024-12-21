@@ -35,14 +35,6 @@
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
-(use-package posframe
-  :ensure t)
-
-(use-package which-key-posframe
-  :ensure t
-  :after (posframe which-key)
-  :hook (after-init . which-key-posframe-mode))
-
 (use-package ace-window
   :ensure t
   :hook (after-init . ace-window-posframe-mode)
@@ -73,18 +65,12 @@
 
 (use-package counsel
   :ensure t
-  :after smex
   :diminish counsel-mode
   :hook (after-init . counsel-mode))
 
 (use-package swiper
   :ensure t
   :config (global-set-key (kbd "C-s") 'swiper-thing-at-point))
-
-(use-package ivy-posframe
-  :ensure t
-  :after (ivy posframe)
-  :hook (after-init . ivy-posframe-mode))
 
 (use-package cmake-mode
   :ensure t)
@@ -116,13 +102,22 @@
 
 (use-package lsp-ui
   :ensure t
-  :after lsp-mode
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package lsp-treemacs
   :ensure t
-  :after (lsp-mode treemacs)
   :hook (lsp-mode . lsp-treemacs-sync-mode))
+
+(use-package posframe
+  :ensure t)
+
+(use-package which-key-posframe
+  :ensure t
+  :hook (after-init . which-key-posframe-mode))
+
+(use-package ivy-posframe
+  :ensure t
+  :hook (after-init . ivy-posframe-mode))
 
 (add-hook 'git-commit-mode-hook
           (progn

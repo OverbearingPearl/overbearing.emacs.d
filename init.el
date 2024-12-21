@@ -111,7 +111,7 @@
 
 (use-package lsp-treemacs
   :ensure t
-  :after lsp-mode
+  :after (lsp-mode treemacs)
   :hook (lsp-mode . lsp-treemacs-sync-mode))
 
 (add-hook 'git-commit-mode-hook

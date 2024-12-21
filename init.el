@@ -118,6 +118,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(winner-mode 1)
 
 (defun resize-frame-centered (frame)
   (with-selected-frame frame

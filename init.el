@@ -39,8 +39,8 @@
 (use-package ace-window
   :ensure t
   :hook (after-init . ace-window-posframe-mode)
+  :bind ("C-x o" . 'ace-window)
   :config
-  (global-set-key (kbd "C-x o") 'ace-window)
   (set-face-attribute 'aw-leading-char-face nil :height 8.0))
 
 (use-package magit
@@ -71,7 +71,7 @@
 
 (use-package swiper
   :ensure t
-  :config (global-set-key (kbd "C-s") 'swiper-thing-at-point))
+  :bind ("C-s" . 'swiper-thing-at-point))
 
 (use-package cmake-mode
   :ensure t)
@@ -79,14 +79,14 @@
 (use-package projectile
   :ensure t
   :hook (after-init . projectile-mode)
-  :config (global-set-key (kbd "C-c p") 'projectile-commander))
+  :bind ("C-c p" . 'projectile-commander))
 
 (use-package treemacs
   :ensure t
   :hook (after-init . (lambda ()
                         (treemacs-follow-mode 1)
                         (treemacs-filewatch-mode 1)))
-  :config (global-set-key (kbd "M-0") 'treemacs-select-window))
+  :bind ("M-0" . 'treemacs-select-window))
 
 (use-package lsp-mode
   :ensure t

@@ -22,10 +22,10 @@
 
 (use-package diminish
   :ensure t
-  :config
-  (diminish 'auto-revert-mode)
-  (diminish 'abbrev-mode)
-  (diminish 'eldoc-mode))
+  :hook (after-init . (lambda ()
+                        (diminish 'auto-revert-mode)
+                        (diminish 'abbrev-mode)
+                        (diminish 'eldoc-mode))))
 
 (use-package smex
   :ensure t

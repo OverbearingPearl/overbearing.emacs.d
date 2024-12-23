@@ -23,8 +23,9 @@
 (use-package diminish
   :ensure t
   :config
-  (diminish 'auto-revert-mode "")
-  (diminish 'abbrev-mode ""))
+  (diminish 'auto-revert-mode)
+  (diminish 'abbrev-mode)
+  (diminish 'eldoc-mode))
 
 (use-package smex
   :ensure t
@@ -117,6 +118,7 @@
 
 (use-package ivy-posframe
   :ensure t
+  :diminish ivy-posframe-mode
   :hook (after-init . ivy-posframe-mode))
 
 (add-hook 'git-commit-mode-hook

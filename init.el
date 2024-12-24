@@ -40,8 +40,10 @@
   :ensure t
   :hook (after-init . ace-window-posframe-mode)
   :bind ("C-x o" . 'ace-window)
-  :config
-  (set-face-attribute 'aw-leading-char-face nil :height 8.0))
+  :config (set-face-attribute 'aw-leading-char-face nil :height 8.0))
+
+(use-package posframe
+  :ensure t)
 
 (use-package magit
   :if (executable-find "git")
@@ -76,6 +78,12 @@
 (use-package cmake-mode
   :ensure t)
 
+(use-package clang-format
+  :ensure t
+  :hook (c++-mode . clang-format-on-save-mode)
+  :config (setq-default clang-format-fallback-style "Google"
+                        clang-format-on-save-p 'always))
+
 (use-package projectile
   :ensure t
   :hook (after-init . projectile-mode)
@@ -108,9 +116,6 @@
 (use-package lsp-treemacs
   :ensure t
   :hook (lsp-mode . lsp-treemacs-sync-mode))
-
-(use-package posframe
-  :ensure t)
 
 (use-package which-key-posframe
   :ensure t

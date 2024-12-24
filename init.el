@@ -84,6 +84,11 @@
   :config (setq-default clang-format-fallback-style "Google"
                         clang-format-on-save-p 'always))
 
+(use-package lice
+  :ensure t
+  :config (setq lice:copyright-holder "OverbearingPearl"
+                lice:default-license "mit"))
+
 (use-package projectile
   :ensure t
   :hook (after-init . projectile-mode)

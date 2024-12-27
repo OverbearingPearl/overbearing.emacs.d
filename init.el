@@ -103,6 +103,10 @@
                         (treemacs-filewatch-mode 1)))
   :bind ("M-0" . 'treemacs-select-window))
 
+(use-package company
+  :ensure t
+  :hook (after-init . company-mode))
+
 (use-package lsp-mode
   :ensure t
   :hook ((c++-mode . lsp-deferred)

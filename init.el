@@ -64,7 +64,7 @@
   :ensure t
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
-  :config (setq ivy-use-virtual-buffers t))
+  :custom (ivy-use-virtual-buffers t))
 
 (use-package counsel
   :ensure t
@@ -81,13 +81,15 @@
 (use-package clang-format
   :ensure t
   :hook (c++-mode . clang-format-on-save-mode)
-  :config (setq-default clang-format-fallback-style "Google"
-                        clang-format-on-save-p 'always))
+  :custom
+  (clang-format-fallback-style "Google")
+  (clang-format-on-save-p 'always))
 
 (use-package lice
   :ensure t
-  :config (setq lice:copyright-holder "OverbearingPearl"
-                lice:default-license "mit"))
+  :custom
+  (lice:copyright-holder "OverbearingPearl")
+  (lice:default-license "mit"))
 
 (use-package projectile
   :ensure t
@@ -103,16 +105,15 @@
 
 (use-package lsp-mode
   :ensure t
-  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred))
-  :config (setq lsp-prefer-flymake nil
-                lsp-idle-timeout 0.5
-                lsp-idle-delay 0.1
-                lsp-auto-guess-root t
-                lsp-keep-workspace-alive nil
-                lsp-completion-provider :capf
-                lsp-headerline-breadcrumb-enable nil))
+  :custom
+  (lsp-keymap-prefix "C-c l")
+  (lsp-idle-delay 0.1)
+  (lsp-auto-guess-root t)
+  (lsp-keep-workspace-alive nil)
+  (lsp-completion-provider :capf)
+  (lsp-headerline-breadcrumb-enable nil))
 
 (use-package lsp-ui
   :ensure t

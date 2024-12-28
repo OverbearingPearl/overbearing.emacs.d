@@ -60,6 +60,14 @@
   :diminish wakatime-mode
   :hook (after-init . global-wakatime-mode))
 
+(use-package org-roam
+  :ensure t
+  :hook (org-mode . org-roam-db-autosync-mode))
+
+(use-package org-roam-ui
+  :ensure t
+  :after org-roam)
+
 (use-package ivy
   :ensure t
   :diminish ivy-mode

@@ -56,7 +56,7 @@
   :ensure t)
 
 (use-package magit
-  :if (executable-find "git")
+  :when (executable-find "git")
   :ensure t
   :defer t)
 
@@ -66,7 +66,7 @@
   :hook (after-init . global-git-gutter-mode))
 
 (use-package wakatime-mode
-  :if (executable-find "wakatime")
+  :when (executable-find "wakatime")
   :ensure t
   :diminish wakatime-mode
   :hook (after-init . global-wakatime-mode))

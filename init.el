@@ -20,6 +20,12 @@
 
 (setq package-check-signature nil) ; for speeding up
 
+(use-package benchmark-init
+  :ensure t
+  :config (progn
+            (benchmark-init/activate)
+            (add-hook 'after-init-hook 'benchmark-init/deactivate)))
+
 (use-package diminish
   :ensure t
   :hook (after-init . (lambda ()

@@ -57,7 +57,8 @@
 
 (use-package magit
   :if (executable-find "git")
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package git-gutter
   :ensure t
@@ -94,7 +95,8 @@
   :bind ("C-s" . 'swiper-thing-at-point))
 
 (use-package cmake-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package clang-format
   :ensure t
@@ -116,10 +118,11 @@
 
 (use-package treemacs
   :ensure t
-  :hook (after-init . (lambda ()
-                        (treemacs-follow-mode 1)
-                        (treemacs-filewatch-mode 1)))
-  :bind ("M-0" . 'treemacs-select-window))
+  :defer t
+  :bind ("M-0" . 'treemacs-select-window)
+  :config
+  (treemacs-follow-mode 1)
+  (treemacs-filewatch-mode 1))
 
 (use-package company
   :ensure t

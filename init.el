@@ -126,6 +126,7 @@
 
 (use-package company
   :ensure t
+  :diminish company-mode
   :hook (after-init . global-company-mode))
 
 (use-package lsp-mode

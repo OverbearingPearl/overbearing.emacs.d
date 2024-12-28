@@ -79,6 +79,11 @@
   :ensure t
   :after org-roam)
 
+(use-package easy-hugo
+  :ensure t
+  :custom
+  (easy-hugo-default-ext ".org"))
+
 (use-package ivy
   :ensure t
   :diminish ivy-mode

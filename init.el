@@ -23,8 +23,12 @@
 (use-package benchmark-init
   :ensure t
   :config (progn
+            (setq gc-cons-threshold most-positive-fixnum)
             (benchmark-init/activate)
-            (add-hook 'after-init-hook 'benchmark-init/deactivate)))
+            (defun my-after-init-tasks ()
+              (benchmark-init/deactivate)
+              (setq gc-cons-threshold (* 100 1024 1024)))
+            (add-hook 'after-init-hook 'my-after-init-tasks)))
 
 (use-package diminish
   :ensure t

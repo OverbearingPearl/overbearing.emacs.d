@@ -113,7 +113,7 @@
 
 (use-package company
   :ensure t
-  :hook (after-init . company-mode))
+  :hook (after-init . global-company-mode))
 
 (use-package lsp-mode
   :ensure t

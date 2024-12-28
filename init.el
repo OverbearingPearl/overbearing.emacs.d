@@ -164,6 +164,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (winner-mode 1)
+(setq use-short-answers t)
 
 (defun resize-frame-centered (frame)
   (with-selected-frame frame

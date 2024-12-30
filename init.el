@@ -161,10 +161,10 @@
 
 (use-package lsp-mode
   :ensure t
+  :init (setq lsp-keymap-prefix "C-c l")
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred))
   :custom
-  (lsp-keymap-prefix "C-c l")
   (lsp-idle-delay 0.1)
   (lsp-auto-guess-root t)
   (lsp-keep-workspace-alive nil)

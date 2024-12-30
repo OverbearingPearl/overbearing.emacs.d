@@ -98,6 +98,9 @@
   :ensure t
   :after org-roam)
 
+(use-package ox-hugo
+  :ensure t)
+
 (use-package easy-hugo
   :when (check-executable "hugo" nil 'easy-hugo-bin)
   :ensure t

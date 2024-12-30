@@ -119,6 +119,10 @@
   :ensure t
   :bind ("C-s" . 'swiper-thing-at-point))
 
+(use-package protobuf-mode
+  :ensure t
+  :mode ("\\.proto$" . protobuf-mode))
+
 (use-package cmake-mode
   :ensure t
   :defer t)

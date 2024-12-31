@@ -5,9 +5,9 @@
 (defun check-executable (my-executable &optional min-version my-executable-path)
   (defun extract-version-from-string (version-string)
     (let ((version ""))
-      (when (string-match "\\`[^0-9]*\\([0-9]+[.][0-9]+[.][0-9]+\\(?:[0-9]+\\)?\\).*"
+      (when (string-match "\\([^0-9]+\\)?\\([0-9]+\\)\\(\\..*\\)?"
 			  version-string)
-        (setq version (match-string 1 version-string)))
+        (setq version (match-string 2 version-string)))
       version))
   (let ((executable (or (and (boundp my-executable-path)
 	                     (symbol-value my-executable-path))

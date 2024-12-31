@@ -6,20 +6,20 @@
   (defun extract-version-from-string (version-string)
     (let ((version ""))
       (when (string-match "\\([^0-9]+\\)?\\([0-9]+\\)\\(\\..*\\)?"
-			  version-string)
+                          version-string)
         (setq version (match-string 2 version-string)))
       version))
   (let ((executable (or (and (boundp my-executable-path)
-	                     (symbol-value my-executable-path))
-	                (executable-find my-executable))))
+                             (symbol-value my-executable-path))
+                        (executable-find my-executable))))
     (if executable
         (let* ((version-command (format "%s --version"
-					(shell-quote-argument executable)))
+                                        (shell-quote-argument executable)))
                (version-string (shell-command-to-string version-command))
                (version (extract-version-from-string version-string)))
-	  (if min-version
-	      (version<= min-version version)
-	    t))
+          (if min-version
+              (version<= min-version version)
+            t))
       nil)))
 
 (load-file-when-exists "~/.emacs.d/custom/custom-prelude.el")
@@ -215,8 +215,8 @@
            (screen-center-y (/ screen-height 2))
            (frame-width (frame-pixel-width))
            (frame-height (frame-pixel-height))
-	   (frame-left (- screen-center-x (/ frame-width 2)))
-	   (frame-top (- screen-center-y (/ frame-height 2))))
+           (frame-left (- screen-center-x (/ frame-width 2)))
+           (frame-top (- screen-center-y (/ frame-height 2))))
       (set-frame-position frame frame-left frame-top))))
 (defun resize-current-frame-centered ()
   (resize-frame-centered (selected-frame)))

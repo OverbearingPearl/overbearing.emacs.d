@@ -249,6 +249,16 @@
 (add-hook 'after-make-frame-functions 'resize-frame-centered)
 (add-hook 'after-init-hook 'resize-current-frame-centered)
 
+(cond
+ ((eq system-type 'windows-nt)
+  (set-frame-font "Consolas" nil t))
+ ((eq system-type 'darwin)
+  (set-frame-font "Monaco" nil t))
+ ((eq system-type 'gnu/linux)
+  (set-frame-font "DejaVu Sans Mono" nil t))
+ (t
+  (set-frame-font "Noto Mono" nil t)))
+
 (server-start)
 
 (load-file-when-exists "~/.emacs.d/custom/custom-coda.el")

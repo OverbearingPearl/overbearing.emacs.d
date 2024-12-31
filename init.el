@@ -73,15 +73,6 @@
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
-(use-package ace-window
-  :ensure t
-  :hook (after-init . ace-window-posframe-mode)
-  :bind ("C-x o" . 'ace-window)
-  :config (set-face-attribute 'aw-leading-char-face nil :height 8.0))
-
-(use-package posframe
-  :ensure t)
-
 (use-package magit
   :ensure t
   :defer t)
@@ -205,16 +196,6 @@
   :ensure t
   :defer t
   :hook (lsp-mode . lsp-treemacs-sync-mode))
-
-(use-package which-key-posframe
-  :ensure t
-  :after which-key
-  :hook (after-init . which-key-posframe-mode))
-
-(use-package ivy-posframe
-  :ensure t
-  :diminish ivy-posframe-mode
-  :hook (after-init . ivy-posframe-mode))
 
 (add-hook 'git-commit-mode-hook
           (progn

@@ -90,6 +90,13 @@
   :diminish wakatime-mode
   :hook (after-init . global-wakatime-mode))
 
+(use-package immersive-translate
+  :ensure t
+  :custom
+  (immersive-translate-backend 'baidu)
+  (immersive-translate-baidu-source-language "zh")
+  (immersive-translate-baidu-target-language "en"))
+
 (use-package org-roam
   :ensure t
   :hook (org-mode . org-roam-db-autosync-mode))

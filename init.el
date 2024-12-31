@@ -67,6 +67,7 @@
 
 (use-package which-key
   :ensure t
+  :defer t
   :diminish which-key-mode
   :hook (after-init . which-key-mode))
 
@@ -96,6 +97,7 @@
 
 (use-package immersive-translate
   :ensure t
+  :defer t
   :custom
   (immersive-translate-backend 'baidu)
   (immersive-translate-baidu-source-language "zh")
@@ -103,6 +105,7 @@
 
 (use-package org-roam
   :ensure t
+  :defer t
   :hook (org-mode . org-roam-db-autosync-mode))
 
 (use-package org-roam-ui
@@ -110,11 +113,13 @@
   :after org-roam)
 
 (use-package ox-hugo
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package easy-hugo
   :when (check-executable "hugo" nil 'easy-hugo-bin)
   :ensure t
+  :defer t
   :custom
   (easy-hugo-default-ext ".org"))
 
@@ -135,6 +140,7 @@
 
 (use-package protobuf-mode
   :ensure t
+  :defer t
   :mode ("\\.proto$" . protobuf-mode))
 
 (use-package cmake-mode
@@ -144,6 +150,7 @@
 (use-package clang-format
   :when (check-executable "clang-format" "19" 'clang-format-executable)
   :ensure t
+  :defer t
   :hook (c++-mode . clang-format-on-save-mode)
   :custom
   (clang-format-fallback-style "Google")
@@ -151,12 +158,14 @@
 
 (use-package lice
   :ensure t
+  :defer t
   :custom
   (lice:copyright-holder "OverbearingPearl")
   (lice:default-license "mit"))
 
 (use-package projectile
   :ensure t
+  :defer t
   :hook (after-init . projectile-mode)
   :bind ("C-c p" . 'projectile-commander))
 
@@ -187,14 +196,17 @@
 
 (use-package lsp-ui
   :ensure t
+  :after lsp-mode
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package lsp-treemacs
   :ensure t
+  :defer t
   :hook (lsp-mode . lsp-treemacs-sync-mode))
 
 (use-package which-key-posframe
   :ensure t
+  :after which-key
   :hook (after-init . which-key-posframe-mode))
 
 (use-package ivy-posframe

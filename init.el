@@ -1,3 +1,7 @@
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+(prefer-coding-system 'utf-8-unix)
+
 (defun load-file-when-exists (custom-file)
   (if (file-exists-p custom-file)
       (load custom-file nil :noerror)))
@@ -230,10 +234,6 @@
 
 (add-hook 'after-make-frame-functions 'resize-frame-centered)
 (add-hook 'after-init-hook 'resize-current-frame-centered)
-
-(setq auto-coding-alist (append '(("\\.md$" . utf-8-unix)
-                                  ("\\.org$" . utf-8-unix))
-                                auto-coding-alist))
 
 (server-start)
 

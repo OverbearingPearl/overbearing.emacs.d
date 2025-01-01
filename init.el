@@ -92,9 +92,7 @@
   :ensure t
   :defer t
   :custom
-  (immersive-translate-backend 'baidu)
-  (immersive-translate-baidu-source-language "zh")
-  (immersive-translate-baidu-target-language "en"))
+  (immersive-translate-backend 'baidu))
 
 (use-package org-roam
   :ensure t

@@ -133,8 +133,7 @@
   :hook (after-init . counsel-mode))
 
 (use-package swiper
-  :ensure t
-  :bind ("C-s" . 'swiper-thing-at-point))
+  :ensure t)
 
 (use-package protobuf-mode
   :ensure t

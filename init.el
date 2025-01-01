@@ -217,6 +217,7 @@
 (scroll-bar-mode -1)
 (winner-mode 1)
 (setq use-short-answers t)
+(setq visible-bell t)
 
 (defun resize-frame-centered (frame)
   (with-selected-frame frame

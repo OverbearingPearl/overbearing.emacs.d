@@ -101,7 +101,8 @@
 
 (use-package org-roam-ui
   :ensure t
-  :after org-roam)
+  :after org-roam
+  :diminish (org-roam-ui-mode org-roam-ui-follow-mode))
 
 (use-package ox-hugo
   :ensure t

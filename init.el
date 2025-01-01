@@ -104,6 +104,9 @@
   :after org-roam
   :diminish (org-roam-ui-mode org-roam-ui-follow-mode))
 
+(use-package sound-wav
+  :ensure t)
+
 (use-package org-pomodoro
   :ensure t)
 

@@ -104,6 +104,9 @@
   :after org-roam
   :diminish (org-roam-ui-mode org-roam-ui-follow-mode))
 
+(use-package org-pomodoro
+  :ensure t)
+
 (use-package ox-hugo
   :ensure t
   :defer t)

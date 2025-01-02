@@ -223,6 +223,9 @@
           (progn
             (setq-local truncate-lines nil)
             (setq-local fill-column 72)
+            (magit-auto-revert-mode 1)
+            (require 'git-commit)
+            (git-commit-mode 1)
             (auto-fill-mode 1)
             (visual-line-mode 1)))
 

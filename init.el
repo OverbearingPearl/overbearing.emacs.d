@@ -58,10 +58,9 @@
 
 (use-package diminish
   :ensure t
-  :hook (after-init . (lambda ()
-                        (diminish 'auto-revert-mode)
-                        (diminish 'abbrev-mode)
-                        (diminish 'eldoc-mode))))
+  :hook ((auto-revert-mode . (lambda () (diminish 'auto-revert-mode)))
+         (abbrev-mode . (lambda () (diminish 'abbrev-mode)))
+         (eldoc-mode . (lambda () (diminish 'eldoc-mode)))))
 
 (use-package smex
   :ensure t

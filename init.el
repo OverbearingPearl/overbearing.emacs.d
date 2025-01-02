@@ -205,6 +205,10 @@
   :defer t
   :hook (lsp-mode . lsp-treemacs-sync-mode))
 
+(use-package python
+  :ensure t
+  :defer t)
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

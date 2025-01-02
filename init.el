@@ -77,6 +77,10 @@
   :ensure t
   :defer t)
 
+(use-package gitignore-templates
+  :ensure t
+  :defer t)
+
 (use-package git-gutter
   :ensure t
   :diminish git-gutter-mode

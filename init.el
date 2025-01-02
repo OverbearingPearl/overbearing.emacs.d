@@ -214,6 +214,11 @@
   :after python
   :hook (python-mode . python-black-on-save-mode-enable-dwim))
 
+(use-package poetry
+  :when (check-executable "poetry")
+  :ensure t
+  :defer t)
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

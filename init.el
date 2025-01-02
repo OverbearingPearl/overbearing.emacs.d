@@ -111,7 +111,8 @@
   :ensure t)
 
 (use-package org-pomodoro
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package ox-hugo
   :ensure t

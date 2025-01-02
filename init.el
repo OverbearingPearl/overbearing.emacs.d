@@ -209,6 +209,11 @@
   :ensure t
   :defer t)
 
+(use-package python-black
+  :ensure t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

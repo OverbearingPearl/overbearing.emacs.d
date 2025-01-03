@@ -94,8 +94,7 @@
 (use-package immersive-translate
   :ensure t
   :defer t
-  :custom
-  (immersive-translate-backend 'baidu))
+  :custom (immersive-translate-backend 'baidu))
 
 (use-package org-roam
   :ensure t
@@ -113,6 +112,11 @@
 (use-package org-pomodoro
   :ensure t
   :defer t)
+
+(use-package org-gtd
+  :ensure t
+  :defer t
+  :init (setq org-gtd-update-ack "3.0.0"))
 
 (use-package ox-hugo
   :ensure t

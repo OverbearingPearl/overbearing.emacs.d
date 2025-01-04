@@ -204,7 +204,7 @@
 (use-package circadian
   :config
   (setq circadian-themes '((:sunrise . default)
-                           ("22:30"  . leuven-dark)))
+                           ("21:30"  . leuven-dark)))
   (circadian-setup))
 
 (add-to-list 'load-path "~/.emacs.d/modules")

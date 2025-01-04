@@ -96,35 +96,6 @@
   :defer t
   :custom (immersive-translate-backend 'baidu))
 
-(use-package org-roam
-  :ensure t
-  :defer t
-  :hook (org-mode . org-roam-db-autosync-mode))
-
-(use-package org-roam-ui
-  :ensure t
-  :after org-roam
-  :diminish (org-roam-ui-mode org-roam-ui-follow-mode))
-
-(use-package sound-wav
-  :ensure t)
-
-(use-package org-pomodoro
-  :ensure t
-  :defer t)
-
-(use-package org-edna
-  :ensure t
-  :defer t
-  :init (setq org-edna-use-inheritance t)
-  :hook (org-mode . org-edna-mode))
-
-(use-package org-gtd
-  :ensure t
-  :after org-edna
-  :init
-  (setq org-gtd-update-ack "3.0.0"))
-
 (use-package ox-hugo
   :ensure t
   :defer t)
@@ -236,6 +207,9 @@
                            ("22:30"  . leuven-dark)))
   (circadian-setup))
 
+(add-to-list 'load-path "~/.emacs.d/modules")
+(require 'init-org)
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)
@@ -287,4 +261,4 @@
 
 (load-file-when-exists "~/.emacs.d/custom/custom-coda.el")
 
-;; .init.el ends
+;; init.el ends

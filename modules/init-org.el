@@ -26,13 +26,18 @@
   :after org-edna
   :init
   (setq org-gtd-update-ack "3.0.0")
-  :config
-  (setq org-gtd-areas-of-focus (append org-gtd-areas-of-focus
-                                       '("Finance"
-                                         "Growth"
-                                         "Recreation"
-                                         "Spirituality"
-                                         "Community"))))
+  :custom
+  (org-gtd-organize-hooks '(org-gtd-set-area-of-focus
+                            org-set-tags-command))
+  (org-gtd-areas-of-focus '("Home"
+                            "Health"
+                            "Family"
+                            "Career"
+                            "Finance"
+                            "Growth"
+                            "Recreation"
+                            "Spirituality"
+                            "Community")))
 
 (provide 'init-org)
 

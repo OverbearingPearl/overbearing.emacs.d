@@ -113,10 +113,17 @@
   :ensure t
   :defer t)
 
-(use-package org-gtd
+(use-package org-edna
   :ensure t
   :defer t
-  :init (setq org-gtd-update-ack "3.0.0"))
+  :init (setq org-edna-use-inheritance t)
+  :hook (org-mode . org-edna-mode))
+
+(use-package org-gtd
+  :ensure t
+  :after org-edna
+  :init
+  (setq org-gtd-update-ack "3.0.0"))
 
 (use-package ox-hugo
   :ensure t

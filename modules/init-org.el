@@ -25,7 +25,14 @@
   :ensure t
   :after org-edna
   :init
-  (setq org-gtd-update-ack "3.0.0"))
+  (setq org-gtd-update-ack "3.0.0")
+  :config
+  (setq org-gtd-areas-of-focus (append org-gtd-areas-of-focus
+                                       '("Finance"
+                                         "Growth"
+                                         "Recreation"
+                                         "Spirituality"
+                                         "Community"))))
 
 (provide 'init-org)
 

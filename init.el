@@ -230,6 +230,12 @@
   :ensure t
   :defer t)
 
+(use-package circadian
+  :config
+  (setq circadian-themes '((:sunrise . default)
+                           ("22:30"  . leuven-dark)))
+  (circadian-setup))
+
 (add-hook 'git-commit-mode-hook
           (progn
             (setq-local truncate-lines nil)

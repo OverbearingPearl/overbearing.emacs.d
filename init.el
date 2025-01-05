@@ -66,6 +66,11 @@
   :ensure t
   :init (smex-initialize))
 
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
+
 (use-package which-key
   :ensure t
   :defer t

@@ -210,7 +210,7 @@
   :ensure t
   :config
   (setq circadian-themes '((:sunrise . default)
-                           ("21:30"  . leuven-dark)))
+                           ("21:30"  . modus-vivendi)))
   (circadian-setup))
 
 (add-to-list 'load-path "~/.emacs.d/modules")

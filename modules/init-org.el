@@ -45,6 +45,10 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)))
+
 (provide 'init-org)
 
 ;; init-org ends

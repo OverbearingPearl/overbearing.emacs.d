@@ -18,6 +18,7 @@
 (use-package org-edna
   :ensure t
   :defer t
+  :diminish (org-edna-mode)
   :init (setq org-edna-use-inheritance t)
   :hook (org-mode . org-edna-mode))
 

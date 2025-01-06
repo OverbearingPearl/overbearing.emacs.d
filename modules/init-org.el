@@ -40,6 +40,10 @@
                             "Spirituality"
                             "Community")))
 
+(setq org-hide-leading-stars t)
+
+(add-hook 'org-mode-hook 'org-indent-mode)
+
 (provide 'init-org)
 
 ;; init-org ends

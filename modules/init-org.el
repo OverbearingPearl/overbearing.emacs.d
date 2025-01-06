@@ -43,6 +43,7 @@
 (setq org-hide-leading-stars t)
 
 (add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
 
 (provide 'init-org)
 

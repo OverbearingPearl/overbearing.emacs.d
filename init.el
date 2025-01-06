@@ -4,6 +4,15 @@
 (set-terminal-coding-system 'utf-8-unix)
 (prefer-coding-system 'utf-8-unix)
 
+(when (eq system-type 'windows-nt)
+  (set-terminal-coding-system 'gbk)
+  (modify-coding-system-alist 'process "*" 'gbk)
+  (defun windows-shell-mode-coding ()
+    (set-buffer-file-coding-system 'gbk)
+    (set-buffer-process-coding-system 'gbk 'gbk))
+  (add-hook 'shell-mode-hook #'windows-shell-mode-coding)
+  (add-hook 'inferior-python-mode-hook #'windows-shell-mode-coding))
+
 (defun load-file-when-exists (custom-file)
   (if (file-exists-p custom-file)
       (load custom-file nil :noerror)))

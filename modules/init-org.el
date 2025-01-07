@@ -1,3 +1,7 @@
+(add-to-list 'load-path "~/.emacs.d/modules")
+
+(require 'init-utils)
+
 (use-package org-roam
   :ensure t
   :defer t
@@ -45,9 +49,10 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((dot . t)))
+(if (check-executable "dot")
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((dot . t))))
 
 (provide 'init-org)
 

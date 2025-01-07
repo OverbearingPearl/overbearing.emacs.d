@@ -1,3 +1,7 @@
+(add-to-list 'load-path "~/.emacs.d/modules")
+
+(require 'init-utils)
+
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 (set-keyboard-coding-system 'utf-8-unix)
@@ -16,26 +20,6 @@
 (defun load-file-when-exists (custom-file)
   (if (file-exists-p custom-file)
       (load custom-file nil :noerror)))
-
-(defun check-executable (my-executable &optional min-version my-executable-path)
-  (defun extract-version-from-string (version-string)
-    (let ((version ""))
-      (when (string-match "\\([^0-9]+\\)?\\([0-9]+\\)\\(\\..*\\)?"
-                          version-string)
-        (setq version (match-string 2 version-string)))
-      version))
-  (let ((executable (or (and (boundp my-executable-path)
-                             (symbol-value my-executable-path))
-                        (executable-find my-executable))))
-    (if executable
-        (let* ((version-command (format "%s --version"
-                                        (shell-quote-argument executable)))
-               (version-string (shell-command-to-string version-command))
-               (version (extract-version-from-string version-string)))
-          (if min-version
-              (version<= min-version version)
-            t))
-      nil)))
 
 (load-file-when-exists "~/.emacs.d/custom/custom-prelude.el")
 
@@ -223,7 +207,6 @@
                            ("21:30"  . leuven-dark)))
   (circadian-setup))
 
-(add-to-list 'load-path "~/.emacs.d/modules")
 (require 'init-org)
 
 (add-hook 'git-commit-mode-hook

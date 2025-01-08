@@ -44,6 +44,10 @@
                             "Spirituality"
                             "Community")))
 
+(use-package org-tree-slide
+  :ensure t
+  :defer t)
+
 (if (check-executable "dot")
     (org-babel-do-load-languages
      'org-babel-load-languages

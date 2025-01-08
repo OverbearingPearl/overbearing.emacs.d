@@ -44,15 +44,40 @@
                             "Spirituality"
                             "Community")))
 
+(if (check-executable "dot")
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((dot . t))))
+
 (setq org-hide-leading-stars t)
 
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
 
-(if (check-executable "dot")
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((dot . t))))
+(defun ensure-heading-spaces ()
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "^\\*+ " nil t)
+      (let ((start (match-beginning 0)))
+        (beginning-of-line)
+        (unless (or (bobp) (eq (char-before (1- start)) ?\n))
+          (goto-char (1- start))
+          (insert "\n"))
+        (forward-line)
+        (end-of-line)
+        (unless (or (eobp) (eq (char-after) ?\n) (looking-at "^:"))
+          (insert "\n"))))))
+
+(defun collapse-multiple-blank-lines ()
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "\n\n+" nil t)
+      (replace-match "\n\n" nil t))))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'ensure-heading-spaces nil t)
+            (add-hook 'before-save-hook 'collapse-multiple-blank-lines nil t)))
 
 (provide 'init-org)
 

@@ -248,7 +248,8 @@
 
 (cond
  ((eq system-type 'windows-nt)
-  (set-frame-font "Consolas" nil t))
+  (set-frame-font "Consolas" nil t)
+  (set-fontset-font t 'han "Microsoft YaHei"))
  ((eq system-type 'darwin)
   (set-frame-font "Monaco" nil t))
  ((eq system-type 'gnu/linux)

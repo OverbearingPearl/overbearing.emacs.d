@@ -84,6 +84,10 @@
   :diminish git-gutter-mode
   :hook (after-init . global-git-gutter-mode))
 
+(use-package lab
+  :ensure t
+  :defer t)
+
 (use-package wakatime-mode
   :when (check-executable "wakatime")
   :ensure t

@@ -9,11 +9,9 @@
 
 (use-package org-roam-ui
   :ensure t
+  :defer t
   :after org-roam
   :diminish (org-roam-ui-mode org-roam-ui-follow-mode))
-
-(use-package sound-wav
-  :ensure t)
 
 (use-package org-pomodoro
   :ensure t
@@ -28,6 +26,7 @@
 
 (use-package org-gtd
   :ensure t
+  :defer t
   :after org-edna
   :init
   (setq org-gtd-update-ack "3.0.0")
@@ -44,18 +43,23 @@
                             "Spirituality"
                             "Community")))
 
+(use-package sound-wav
+  :ensure t
+  :defer t
+  :after org-gtd)
+
 (use-package org-tree-slide
   :ensure t
   :defer t)
 
-(if (check-executable "dot")
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((dot . t))))
+(add-hook 'org-mode-hook (lambda()
+                           (if (check-executable "dot")
+                               (org-babel-do-load-languages
+                                'org-babel-load-languages
+                                '((dot . t))))
+                           (setq org-hide-leading-stars t)
+                           (org-indent-mode 1)))
 
-(setq org-hide-leading-stars t)
-
-(add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
 
 (defun ensure-heading-spaces ()

@@ -54,9 +54,9 @@
 
 (add-hook 'org-mode-hook (lambda()
                            (if (check-executable "dot")
-                               (org-babel-do-load-languages
-                                'org-babel-load-languages
-                                '((dot . t))))
+                               (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
+                           (if (boundp 'org-plantuml-jar-path)
+                               (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
                            (setq org-hide-leading-stars t)
                            (org-indent-mode 1)))
 

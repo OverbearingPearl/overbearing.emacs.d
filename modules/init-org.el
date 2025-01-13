@@ -57,6 +57,9 @@
                                (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
                            (if (boundp 'org-plantuml-jar-path)
                                (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
+                           (setq org-confirm-babel-evaluate nil)
+                           (setq org-startup-with-inline-images t)
+                           (add-hook 'after-save-hook 'org-redisplay-inline-images)
                            (setq org-hide-leading-stars t)
                            (org-indent-mode 1)))
 

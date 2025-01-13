@@ -52,14 +52,17 @@
   :ensure t
   :defer t)
 
-(add-hook 'org-mode-hook (lambda()
+(add-hook 'org-mode-hook (progn
                            (if (check-executable "dot")
                                (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
                            (if (boundp 'org-plantuml-jar-path)
                                (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
-                           (setq org-confirm-babel-evaluate nil)
+                           (setq org-image-actual-width `(,(* (frame-char-width) 72)))
                            (setq org-startup-with-inline-images t)
-                           (add-hook 'after-save-hook 'org-redisplay-inline-images)
+                           (add-hook 'after-save-hook (lambda ()
+                                                        (setq org-image-actual-width `(,(- (window-pixel-width) 20)))
+                                                        (org-redisplay-inline-images)))
+                           (setq org-confirm-babel-evaluate nil)
                            (setq org-hide-leading-stars t)
                            (org-indent-mode 1)))
 

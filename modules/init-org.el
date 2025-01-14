@@ -63,9 +63,9 @@
                                                         (setq org-image-actual-width `(,(- (window-pixel-width) 20)))
                                                         (org-redisplay-inline-images)))
                            (setq org-confirm-babel-evaluate nil)
-                           (setq org-hide-leading-stars t)
-                           (org-indent-mode 1)))
+                           (setq org-hide-leading-stars t)))
 
+(add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
 
 (defun ensure-heading-spaces ()

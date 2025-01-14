@@ -41,13 +41,13 @@
 
 (use-package benchmark-init
   :ensure t
-  :config (progn
-            (setq gc-cons-threshold most-positive-fixnum)
-            (benchmark-init/activate)
-            (defun my-after-init-tasks ()
-              (benchmark-init/deactivate)
-              (setq gc-cons-threshold (* 100 1024 1024)))
-            (add-hook 'after-init-hook 'my-after-init-tasks)))
+  :config
+  (setq gc-cons-threshold most-positive-fixnum)
+  (benchmark-init/activate)
+  (defun my-after-init-tasks ()
+    (benchmark-init/deactivate)
+    (setq gc-cons-threshold (* 100 1024 1024)))
+  (add-hook 'after-init-hook 'my-after-init-tasks))
 
 (use-package diminish
   :ensure t
@@ -214,12 +214,9 @@
 (require 'init-org)
 
 (add-hook 'git-commit-mode-hook
-          (progn
+          (lambda()
             (setq-local truncate-lines nil)
             (setq-local fill-column 72)
-            (magit-auto-revert-mode 1)
-            (require 'git-commit)
-            (git-commit-mode 1)
             (auto-fill-mode 1)
             (visual-line-mode 1)))
 

@@ -52,22 +52,6 @@
   :ensure t
   :defer t)
 
-(add-hook 'org-mode-hook (progn
-                           (if (check-executable "dot")
-                               (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
-                           (if (boundp 'org-plantuml-jar-path)
-                               (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
-                           (setq org-image-actual-width `(,(* (frame-char-width) 72)))
-                           (setq org-startup-with-inline-images t)
-                           (add-hook 'after-save-hook (lambda ()
-                                                        (setq org-image-actual-width `(,(- (window-pixel-width) 20)))
-                                                        (org-redisplay-inline-images)))
-                           (setq org-confirm-babel-evaluate nil)
-                           (setq org-hide-leading-stars t)))
-
-(add-hook 'org-mode-hook 'org-indent-mode)
-(add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
-
 (defun ensure-heading-spaces ()
   (save-excursion
     (goto-char (point-min))
@@ -90,8 +74,23 @@
 
 (add-hook 'org-mode-hook
           (lambda ()
+            (if (check-executable "dot")
+                (org-babel-do-load-languages 'org-babel-load-languages '((dot . t))))
+            (if (boundp 'org-plantuml-jar-path)
+                (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
+            (setq org-image-actual-width `(,(* (frame-char-width) 72)))
+            (setq org-startup-with-inline-images t)
+            (add-hook 'after-save-hook (lambda ()
+                                         (setq org-image-actual-width
+                                               `(,(- (window-pixel-width)
+                                                     (* (frame-char-width) 10))))
+                                         (org-redisplay-inline-images)))
+            (setq org-confirm-babel-evaluate nil)
+            (setq org-hide-leading-stars t)
+            (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
             (add-hook 'before-save-hook 'ensure-heading-spaces nil t)
-            (add-hook 'before-save-hook 'collapse-multiple-blank-lines nil t)))
+            (add-hook 'before-save-hook 'collapse-multiple-blank-lines nil t)
+            (org-indent-mode 1)))
 
 (provide 'init-org)
 

@@ -73,7 +73,13 @@
 
 (use-package magit
   :ensure t
-  :defer t)
+  :mode ("[A-Z]*_\\(EDIT\\)?MSG\\'" . git-commit-mode)
+  :config (magit-auto-revert-mode 1)
+  :hook (git-commit . (lambda ()
+                        (setq-local truncate-lines nil)
+                        (setq-local fill-column 72)
+                        (auto-fill-mode 1)
+                        (visual-line-mode 1))))
 
 (use-package gitignore-templates
   :ensure t
@@ -212,13 +218,6 @@
   (circadian-setup))
 
 (require 'init-org)
-
-(add-hook 'git-commit-mode-hook
-          (lambda()
-            (setq-local truncate-lines nil)
-            (setq-local fill-column 72)
-            (auto-fill-mode 1)
-            (visual-line-mode 1)))
 
 (setq-default indent-tabs-mode nil)
 

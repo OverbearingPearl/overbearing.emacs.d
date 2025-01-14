@@ -80,11 +80,7 @@
                 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t))))
             (setq org-image-actual-width `(,(* (frame-char-width) 72)))
             (setq org-startup-with-inline-images t)
-            (add-hook 'after-save-hook (lambda ()
-                                         (setq org-image-actual-width
-                                               `(,(- (window-pixel-width)
-                                                     (* (frame-char-width) 10))))
-                                         (org-redisplay-inline-images)))
+            (add-hook 'after-save-hook 'org-redisplay-inline-images)
             (setq org-confirm-babel-evaluate nil)
             (setq org-hide-leading-stars t)
             (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))

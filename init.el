@@ -63,7 +63,9 @@
   :ensure t
   :diminish undo-tree-mode
   :config
-  (global-undo-tree-mode 1))
+  (global-undo-tree-mode 1)
+  :custom
+  (undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/"))))
 
 (use-package which-key
   :ensure t

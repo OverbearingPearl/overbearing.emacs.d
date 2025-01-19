@@ -171,6 +171,11 @@
   (treemacs-follow-mode 1)
   (treemacs-filewatch-mode 1))
 
+(use-package emoji-cheat-sheet-plus
+  :ensure t
+  :defer t
+  :diminish emoji-cheat-sheet-plus-display-mode)
+
 (use-package company
   :ensure t
   :diminish company-mode
@@ -251,7 +256,9 @@
 (cond
  ((eq system-type 'windows-nt)
   (set-frame-font "Consolas" nil t)
-  (set-fontset-font t 'han "Microsoft YaHei"))
+  (set-fontset-font t 'han "Microsoft YaHei")
+  (if (member "Segoe UI Emoji" (font-family-list))
+    (set-fontset-font t 'symbol (font-spec :family "Segoe UI Emoji") nil 'prepend)))
  ((eq system-type 'darwin)
   (set-frame-font "Monaco" nil t))
  ((eq system-type 'gnu/linux)

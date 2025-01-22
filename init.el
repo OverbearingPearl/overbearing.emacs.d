@@ -93,6 +93,7 @@
   :hook (after-init . global-git-gutter-mode))
 
 (use-package lab
+  :when (string-match "JSON" system-configuration-features)
   :ensure t
   :defer t)
 

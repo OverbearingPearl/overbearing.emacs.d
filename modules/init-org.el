@@ -3,6 +3,7 @@
 (require 'init-utils)
 
 (use-package org-roam
+  :when (string-match "SQLITE3" system-configuration-features)
   :ensure t
   :defer t
   :hook (org-mode . org-roam-db-autosync-mode))

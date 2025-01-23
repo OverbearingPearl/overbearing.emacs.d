@@ -65,7 +65,7 @@
           (forward-line))
         (forward-line)
         (beginning-of-line)
-        (unless (or (eq (char-after) ?\n) (looking-at "^:"))
+        (unless (or (eq (char-after) ?\n) (looking-at "^:") (looking-at "^DEADLINE: "))
           (end-of-line)
           (unless (eobp)
             (beginning-of-line)

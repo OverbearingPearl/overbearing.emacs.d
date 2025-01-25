@@ -223,7 +223,7 @@
   :ensure t
   :config
   (setq circadian-themes '((:sunrise . leuven)
-                           ("21:30"  . leuven-dark)))
+                           ("21:00" . leuven-dark)))
   (circadian-setup))
 
 (require 'init-org)
@@ -260,7 +260,7 @@
   (set-frame-font "Consolas" nil t)
   (set-fontset-font t 'han "Microsoft YaHei")
   (if (member "Segoe UI Emoji" (font-family-list))
-    (set-fontset-font t 'symbol (font-spec :family "Segoe UI Emoji") nil 'prepend)))
+      (set-fontset-font t 'symbol (font-spec :family "Segoe UI Emoji") nil 'prepend)))
  ((eq system-type 'darwin)
   (set-frame-font "Monaco" nil t))
  ((eq system-type 'gnu/linux)

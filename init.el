@@ -176,7 +176,8 @@
 (use-package emoji-cheat-sheet-plus
   :ensure t
   :defer t
-  :diminish emoji-cheat-sheet-plus-display-mode)
+  :diminish emoji-cheat-sheet-plus-display-mode
+  :hook (org-mode . emoji-cheat-sheet-plus-display-mode))
 
 (use-package company
   :ensure t

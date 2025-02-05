@@ -191,6 +191,12 @@
   :after python
   :hook (python-mode . python-black-on-save-mode-enable-dwim))
 
+(use-package elpy
+  :ensure t
+  :defer t
+  :diminish elpy-mode
+  :config (elpy-enable))
+
 (use-package poetry
   :when (check-executable "poetry")
   :ensure t

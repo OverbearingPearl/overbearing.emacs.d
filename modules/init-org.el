@@ -93,7 +93,7 @@
             (setq org-hide-leading-stars t)
             (add-hook 'org-indent-mode-hook (lambda () (diminish 'org-indent-mode)))
             (add-hook 'before-save-hook 'ensure-heading-spaces nil t)
-            (add-hook 'before-save-hook 'collapse-multiple-blank-lines nil t)
+            ;; (add-hook 'before-save-hook 'collapse-multiple-blank-lines nil t)
             (org-indent-mode 1)))
 
 (provide 'init-org)

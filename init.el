@@ -109,6 +109,10 @@
 (use-package swiper
   :ensure t)
 
+(use-package json-navigator
+  :ensure t
+  :defer t)
+
 (use-package protobuf-mode
   :ensure t
   :defer t

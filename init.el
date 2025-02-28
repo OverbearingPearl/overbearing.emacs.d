@@ -113,6 +113,10 @@
   :ensure t
   :defer t)
 
+(use-package typescript-mode
+  :ensure t
+  :defer t)
+
 (use-package protobuf-mode
   :ensure t
   :defer t

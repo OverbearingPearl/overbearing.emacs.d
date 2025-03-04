@@ -221,6 +221,10 @@
                            ("21:00" . leuven-dark)))
   (circadian-setup))
 
+(use-package outline-indent
+  :ensure t
+  :defer t)
+
 (require 'init-git)
 (require 'init-org)
 

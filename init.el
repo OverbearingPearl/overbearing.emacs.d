@@ -126,6 +126,10 @@
   :defer t
   :mode ("\\.proto$" . protobuf-mode))
 
+(use-package groovy-mode
+  :ensure t
+  :defer t)
+
 (use-package cmake-mode
   :ensure t
   :defer t)

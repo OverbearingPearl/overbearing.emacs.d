@@ -163,7 +163,8 @@
   :bind ("M-0" . 'treemacs-select-window)
   :config
   (treemacs-follow-mode 1)
-  (treemacs-filewatch-mode 1))
+  (treemacs-filewatch-mode 1)
+  :custom (treemacs-no-delete-other-windows nil))
 
 (use-package emoji-cheat-sheet-plus
   :ensure t

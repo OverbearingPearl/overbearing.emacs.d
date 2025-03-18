@@ -213,7 +213,7 @@
   :ensure t
   :defer t
   :diminish elpy-mode
-  :config (elpy-enable))
+  :hook (python-mode . elpy-enable))
 
 (use-package poetry
   :when (check-executable "poetry")

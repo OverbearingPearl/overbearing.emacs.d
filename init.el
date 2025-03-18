@@ -180,7 +180,8 @@
   :ensure t
   :init (setq lsp-keymap-prefix "C-c l")
   :hook ((c++-mode . lsp-deferred)
-         (c-mode . lsp-deferred))
+         (c-mode . lsp-deferred)
+         (typescript-mode . lsp-deferred))
   :custom
   (lsp-idle-delay 0.1)
   (lsp-auto-guess-root t)

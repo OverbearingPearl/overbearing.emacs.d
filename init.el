@@ -143,6 +143,10 @@
   (clang-format-fallback-style "Google")
   (clang-format-on-save-p 'always))
 
+(use-package sly
+  :ensure t
+  :defer t)
+
 (use-package lice
   :ensure t
   :defer t

@@ -28,9 +28,9 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") t)
+             '("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
 (add-to-list 'package-archives
-             '("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/") t)
+             '("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)

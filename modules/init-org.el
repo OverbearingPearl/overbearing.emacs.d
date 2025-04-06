@@ -6,7 +6,12 @@
   :when (string-match "SQLITE3" system-configuration-features)
   :ensure t
   :defer t
-  :hook (org-mode . org-roam-db-autosync-mode))
+  :config
+  (add-hook 'after-save-hook
+            (lambda ()
+              (when (string-match-p (expand-file-name org-roam-directory)
+                                    (buffer-file-name))
+                (org-roam-db-sync)))))
 
 (use-package org-roam-ui
   :ensure t

@@ -1,0 +1,17 @@
+* OverbearngPearl's .emacs.d
+
+** How to use?
+
+*** As a Programmer
+
+**** C++
+
+**** Python
+
+**** JavaScripts
+
+**** TypeScripts
+
+*** As a GTDer
+
+*** As a Blogger

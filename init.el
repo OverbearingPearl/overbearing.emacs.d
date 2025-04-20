@@ -235,6 +235,9 @@
   :ensure t
   :defer t)
 
+(use-package chatgpt-shell
+  :ensure t)
+
 (require 'init-git)
 (require 'init-org)
 

@@ -49,6 +49,11 @@
     (setq gc-cons-threshold (* 100 1024 1024)))
   (add-hook 'after-init-hook 'my-after-init-tasks))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
 (use-package diminish
   :ensure t
   :hook ((auto-revert-mode . (lambda () (diminish 'auto-revert-mode)))

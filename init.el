@@ -50,6 +50,7 @@
   (add-hook 'after-init-hook 'my-after-init-tasks))
 
 (use-package exec-path-from-shell
+  :unless (eq system-type 'windows-nt)
   :ensure t
   :config
   (exec-path-from-shell-initialize))

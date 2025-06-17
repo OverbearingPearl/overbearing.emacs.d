@@ -153,6 +153,11 @@
   (clang-format-fallback-style "Google")
   (clang-format-on-save-p 'always))
 
+(use-package shfmt
+  :ensure t
+  :defer t
+  :hook (sh-mode . shfmt-on-save-mode))
+
 (use-package sly
   :ensure t
   :defer t)

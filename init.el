@@ -27,10 +27,8 @@
 (load-file-when-exists custom-file)
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
-(add-to-list 'package-archives
-             '("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
+(setq package-archives
+      '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
